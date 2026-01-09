@@ -1,19 +1,19 @@
 
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import Landing from './pages/Landing';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import Goals from './pages/Goals';
-import Journal from './pages/Journal';
-import AIMentor from './pages/AIMentor';
-import Progress from './pages/Progress';
-import Reports from './pages/Reports';
-import Profile from './pages/Profile';
-import Settings from './pages/Settings';
-import Sidebar from './components/Sidebar';
-import Topbar from './components/Topbar';
-import { supabase, DBService } from './services/db';
+import Landing from '../pages/Landing';
+import Login from '../pages/Login';
+import Dashboard from '../pages/Dashboard';
+import Goals from '../pages/Goals';
+import Journal from '../pages/Journal';
+import AIMentor from '../pages/AIMentor';
+import Progress from '../pages/Progress';
+import Reports from '../pages/Reports';
+import Profile from '../pages/Profile';
+import Settings from '../pages/Settings';
+import Sidebar from '../components/Sidebar';
+import Topbar from '../components/Topbar';
+import { supabase, DBService } from '../services/db';
 
 const App: React.FC = () => {
   const [session, setSession] = useState<any>(null);
@@ -28,7 +28,7 @@ const App: React.FC = () => {
       try {
         const { data: { session } } = await supabase.auth.getSession();
         setSession(session);
-        
+
         // Non-blocking profile check
         if (session) {
           DBService.ensureProfile().catch(err => console.error("Background profile sync failed:", err));
@@ -76,7 +76,7 @@ const App: React.FC = () => {
     return (
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/login" element={<Login onLogin={() => {}} />} />
+        <Route path="/login" element={<Login onLogin={() => { }} />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     );
