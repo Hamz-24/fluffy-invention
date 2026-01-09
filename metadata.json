@@ -1,0 +1,8 @@
+{
+  "name": "GuideX - AI Personal Mentor",
+  "description": "A premium SaaS dashboard for AI-powered personal mentoring, goal tracking, and emotional journaling.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
